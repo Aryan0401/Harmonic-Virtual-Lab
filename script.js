@@ -1,20 +1,28 @@
 function calculate()
 {
-    let n = 2;
+    let n = 6;
     let asum = 0;
     let a0 = 0;
     let bsum = 0;
+
     for (let i = 1; i <= n; i++) {
         let x = parseFloat(document.getElementById("x" + i).value);
         let y = parseFloat(document.getElementById("y" + i).value);
+
         let radians = x * (Math.PI / 180);
+
         a0 += y;
-        asum += y * Math.sin(radians);
-        bsum += y * Math.cos(radians);
+        asum += y * Math.cos(radians); // a1
+        bsum += y * Math.sin(radians); // b1
     }
-    // console.log(asum*(2/3));//b1
-    // console.log(bsum*(2/3));//a1
-    document.getElementById("result").innerHTML = `f(x) = ${a0* (2 / 3)} + ${asum * (2 / 3)}sin(x) + ${bsum * (2 / 3)}cos(x)`;
+
+   
+    let a0_final = (2 / n) * a0;
+    let a1 = (2 / n) * asum;
+    let b1 = (2 / n) * bsum;
+
+    document.getElementById("result").innerHTML =
+        `f(x) = ${a0_final / 2} + ${a1}cos(x) + ${b1}sin(x)`;
 }
 
 
