@@ -9,14 +9,33 @@
 </head>
 <body>
     <h1>Matlab Harmonic Calculator</h1>
-    <input type="number" id="n" placeholder="Enter n"><button onclick="generateTable()">Generate Table</button>
+    <input type="number" id="num" placeholder="Enter n"> 
+    <input type="radio" id="Degree" name="x_value" value="Degree"><label for="Degree">Degree</label>
+    <input type="radio" id="Radian" name="x_value" value="Radian"><label for="Radian">Radian</label>
+    <input type="radio" id="Arbitary" name="x_value" value="Arbitary" onclick="toggleArbInput()"><label for="Arbitary">Arbitary</label><br>
 
+    <div id="arb_container" style="display: none; margin-top: 10px;">    <!--yaha sirf container use kiya chupane aur dikhane -->
+    <input type="number" id="arb_limit" placeholder="Enter Period (L or T)">
+    </div>
+    <input type="number" id="interval" placeholder="Enter Interval in series(optional)">
+    <br>
+    
+    
+    
+    <input type="number" id="n" placeholder="Enter nth harmonic" min="1">
+    <button onclick="generateTable()">Generate Table</button>
 
-
+    <!-- table -->
     <table border="1" id="table-js">
        
     </table>
-    <button onclick="calculate()">Calculate bn</button>
+    
+    <button id="calculate_btn" onclick="calculate()">Calculate</button>
+    <!-- Check answers -->
+     <div class="get-ans">
+
+     </div>
+    <p id="a0_display"></p>
     <p id="result"></p>
 </body>
 <script src="script.js"></script>
