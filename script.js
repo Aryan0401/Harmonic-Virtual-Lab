@@ -13,7 +13,16 @@ function toggleArbInput() {
 document.getElementById("Degree").onclick = toggleArbInput;
 document.getElementById("Radian").onclick = toggleArbInput;
 document.getElementById("Arbitary").onclick = toggleArbInput;
-
+function checkA0()
+{
+    let a0_input = parseFloat(document.getElementById("a0_input").value);
+    const tolerance = 0.01;
+    if (Math.abs(a0_input - a0) > tolerance) {
+        alert(`Incorrect a0!`);
+    } else {
+        alert(`Correct a0!`);
+    }
+}
 function calculate() {
     ans.innerHTML = ""; // clear UI
     ak_values = [];
@@ -33,7 +42,9 @@ function calculate() {
 
     a0 = (2 / n) * sumY;
     let f_x = `f(x) = ${(a0 / 2).toFixed(4)}`;
-
+    ans.innerHTML = `<p>Calculate a0: <input type="number" id="a0_input" placeholder="Enter a0"></p>
+    <button onclick="checkA0()">Check a0</button><br><br>
+    `;
     for (let k = 1; k <= harmonicTerms; k++) {
         let ak_sum = 0;
         let bk_sum = 0;
